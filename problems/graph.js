@@ -32,7 +32,14 @@ class Graph {
   }
 
   buildGraph(edges) {
-    // Code goes here ...
+    for (let i = 0; i < edges.length; i++) {
+      const el = edges[i];
+     this.addVertex(el[0])
+     this.addVertex(el[1])
+     this.addEdges(el[0],el[1])
+     
+    }
+    return this.adjList
   }
 
   breadthFirstTraversal(startingVertex) {
@@ -49,17 +56,6 @@ class Graph {
 
 }
 
-
-
 module.exports = {
   Graph
 };
-
-
-
-
-
-
-
-
-
