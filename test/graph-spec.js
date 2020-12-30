@@ -200,3 +200,9 @@ describe('Graph Implementation', () => {
     });
 });
 
+/*
+    A
+B   C      D
+E   F G
+
+*/

@@ -58,7 +58,6 @@ class Graph {
     let visited = [];
     //let visited = new Set()
     let stack = [startingVertex];
-  
 
     //while loop
     while (stack.length) {
@@ -74,8 +73,6 @@ class Graph {
           stack.push(neighbor);
         }
       }
-
-   
     }
 
     //let array = Array.from(visited)
@@ -89,12 +86,21 @@ class Graph {
   //  visited = ['a', 'd']
   //  stack = ['b', 'c', 'g']
 
-  depthFirstTraversalRecursive(
-    startingVertex,
-    visited = new Set(),
-    vertices = []
-  ) {
-    // Code goes here ...
+  depthFirstTraversalRecursive(startingVertex, visited = new Set()) {
+    //base
+    if (visited.has(startingVertex)) {
+      return;
+    }
+    //processing
+    visited.add(startingVertex);
+    const neighbors = this.adjList[startingVertex];
+    for (let i = 0; i < neighbors.length; i++) {
+      const neighbor = neighbors[i];
+      //recursive
+      this.depthFirstTraversalRecursive(neighbor, visited);
+    }
+
+    return Array.from(visited);
   }
 }
 
